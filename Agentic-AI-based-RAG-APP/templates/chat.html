@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='assets/bot.png') }}" alt="Bot Logo" height="45">
+            </div>
+            <div class="title">AI Tutor Assistant</div>
+        </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="container">
+
+        <!-- LEFT: CHAT -->
+        <div class="chat-box" id="chat-box">
+            <div class="chat-container" id="chat-container"></div>
+
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask your question...">
+                <button id="send-button" class="send-button">➤</button>
+            </div>
+        </div>
+
+        <!-- RIGHT: PDF VIEWER -->
+        <div class="pdf-box hidden" id="pdf-box">
+            <button class="close-pdf" id="closePdfBtn">X</button>
+            <iframe id="pdfViewer"></iframe>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
