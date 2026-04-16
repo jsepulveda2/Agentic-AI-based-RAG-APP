@@ -67,6 +67,16 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_12563BF419924AAC9C35DD9A8F0EAFDE }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EB7C0D36B18E417ABC7C589EF77DCDB0 }}
 
+
+      - name: Set SCM build setting
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az webapp config appsettings set \
+              --name mtu-muli-agentAPP \
+              --resource-group <your-resource-group> \
+              --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
