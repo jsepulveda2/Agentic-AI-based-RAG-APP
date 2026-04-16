@@ -154,7 +154,10 @@ def _append_log(role: str, text: str, grade: str = ""):
     }
     if grade:
         entry["grade"] = grade
-    session.setdefault("chat_log", []).append(entry)
+
+    chat_log = session.get("chat_log", [])
+    chat_log.append(entry)
+    session["chat_log"] = chat_log
 
 # ============================================================
 #  GENERIC HELPERS
