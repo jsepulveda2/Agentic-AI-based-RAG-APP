@@ -207,9 +207,9 @@ def log_event(state: dict, kind: str, detail: dict):
     state["events"].append({"ts": timestamp(), "type": kind, "detail": detail})
     print(f"[EVENT] {kind}: {detail}")
 
-# ============================================================
+# =============================================================
 #  PDF / REFERENCE HELPERS
-# ============================================================
+# =============================================================
 def generate_embedding(text: str):
     if not openai_client or not EMBEDDING_DEPLOYMENT:
         raise RuntimeError("Embedding client/deployment not configured.")
